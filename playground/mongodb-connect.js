@@ -17,25 +17,25 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
     console.log('You are fukc a girl in the ass');
    }
     
-    db.collection('Todos').find().toArray().then((docs) => {
-        console.log('Todos');
-        console.log(JSON.stringify(docs, undefined, 2));
-    }, (err) => {
-        console.log('Unable to fetch todos', err);
-    });
-    
-    
-//    db.collection('Todos').insertOne({
-//       text:'Something to do',
-//        completed: false
-//    }, (err, result) => {
-//        if(err) {
-//            return console.log('Unable to inser todo', err);
-//        } else {
-//            console.log(JSON.stringify(result.ops, undefined, 2));
-//        }
-//    
+//    db.collection('Todos').find().toArray().then((docs) => {
+//        console.log('Todos');
+//        console.log(JSON.stringify(docs, undefined, 2));
+//    }, (err) => {
+//        console.log('Unable to fetch todos', err);
 //    });
+    
+    
+    db.collection('Todos').insertOne({
+       text:'eat lunch',
+        completed: false
+    }, (err, result) => {
+        if(err) {
+            return console.log('Unable to inser todo', err);
+        } else {
+            console.log(JSON.stringify(result.ops, undefined, 2));
+        }
+    
+    });
     
 //    db.collection('Todos').insertOne({
 //       name:'Dima',
@@ -50,5 +50,5 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
 //    
 //    });
 //    
-//    db.close();
+    db.close();
 });
